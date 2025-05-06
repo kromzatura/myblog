@@ -1,24 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
 ---
 layout: none
-permalink: /myblog/feed.xml
+permalink: /feed.xml
 ---
-
-<?xml version="1.0" encoding="UTF-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title>{{ site.title }}</title>
-  <link href="{{ site.url }}{{ site.baseurl }}/"/>
-  <updated>{{ site.time | date_to_xmlschema }}</updated>
-  <id>{{ site.url }}{{ site.baseurl }}</id>
-  <author>
-    <name>{{ site.author.name | default: site.title }}</name>
-  </author>
-  {% for post in site.posts limit:10 %}
-  <entry>
-    <title>{{ post.title }}</title>
-    <link href="{{ site.url }}{{ site.baseurl }}{{ post.url }}"/>
-    <id>{{ site.url }}{{ site.baseurl }}{{ post.id }}</id>
-    <updated>{{ post.date | date_to_xmlschema }}</updated>
-    <content type="html"><![CDATA[{{ post.content | xml_escape }}]]></content>
-  </entry>
-  {% endfor %}
-</feed>
+<rss version="2.0">
+  <channel>
+    <title>{{ site.title }}</title>
+    <link>{{ site.url }}{{ site.baseurl }}</link>
+    <description>{{ site.description }}</description>
+    {% for post in site.posts limit:10 %}
+    <item>
+      <title>{{ post.title }}</title>
+      <link>{{ site.url }}{{ site.baseurl }}{{ post.url }}</link>
+      <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+      <description><![CDATA[{{ post.content | xml_escape }}]]></description>
+    </item>
+    {% endfor %}
+  </channel>
+</rss>
