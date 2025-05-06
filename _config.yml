@@ -1,8 +1,8 @@
+markdown: kramdown
 title: My GitHub Blog
 description: A simple Jekyll blog with RSS feed
 baseurl: "/myblog"
 url: "https://kromzatura.github.io"
 plugins:
   - jekyll-feed
-  - jekyll-rss
 theme: minima
