@@ -1,6 +1,6 @@
 title: My GitHub Blog
 description: A simple Jekyll blog with RSS feed
-baseurl: "" 
+baseurl: "/myblog"
 url: "https://kromzatura.github.io"
 plugins:
   - jekyll-feed
